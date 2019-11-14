@@ -1,23 +1,15 @@
 package xyz.ruiwencloud;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,10 +22,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import java.util.Map;
 import java.util.Random;
-
-import static xyz.ruiwencloud.R.drawable.ic_chevron_right_gray_24dp;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -202,7 +196,8 @@ public class MainActivity extends AppCompatActivity {
         nine_pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this,Nine_picActivity.class));
             }
         });
         time_display.setOnClickListener(new View.OnClickListener() {

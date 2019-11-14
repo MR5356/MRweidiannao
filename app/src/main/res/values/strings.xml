@@ -34,7 +34,7 @@
     <string name="des_play1">播放地址1</string>
     <string name="des_play2">播放地址2(手动选择播放器)</string>
     <string name="des_down1">下载地址</string>
-    <string name="old_version">使用老版本</string>
+    <string name="old_version">快应用</string>
     <string name="cat_money">历史价格查看</string>
     <string name="cat_money_info">查看淘宝，京东等平台商品的历史价格</string>
     <string name="dev_person">成为管理员</string>

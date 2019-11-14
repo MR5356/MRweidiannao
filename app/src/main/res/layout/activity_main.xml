@@ -143,6 +143,8 @@
                     android:paddingBottom="15dp"
                     android:background="@drawable/btn_shape"
                     android:text="@string/nine_pic"
+                    android:drawableRight="@drawable/ic_star_canuse_24dp"
+                    android:paddingRight="30dp"
                     android:textSize="13sp"
                     android:textColor="@color/blank"
                     android:drawableLeft="@drawable/ic_grid_on_gray_24dp"
@@ -150,7 +152,8 @@
                     android:drawablePadding="20dp"
                     android:drawableStart="@drawable/ic_grid_on_gray_24dp"
                     android:paddingStart="30dp"
-                    tools:ignore="RtlSymmetry" />
+                    tools:ignore="RtlSymmetry"
+                    android:drawableEnd="@drawable/ic_star_canuse_24dp" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
