@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120sp"
+        android:orientation="vertical"
+        android:padding="30dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welecome"
+            android:drawableLeft="@drawable/ic_developer_mode_gray_24dp"
+            android:textSize="20sp"
+            android:drawablePadding="10dp"
+            tools:ignore="RtlHardcoded" />
+        <EditText
+            android:id="@+id/dev_user"
+            android:layout_marginTop="30dp"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/user_name"/>
+        <EditText
+            android:id="@+id/dev_mail"
+            android:layout_width="match_parent"
+            android:textSize="15sp"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress"
+            android:hint="@string/user_email"/>
+        <Button
+            android:id="@+id/dev_singin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/singin"
+            android:textSize="20sp"
+            android:background="#00aaff" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="10sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        android:textColor="#00aaff"
+        android:text="@string/welecome"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

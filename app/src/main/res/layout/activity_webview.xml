@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true"
+    tools:context=".WebBrowserActivity">
+
+    <LinearLayout
+        android:id="@+id/webview_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#00000000"
+        app:layout_constraintTop_toTopOf="parent">
+        <EditText
+            android:id="@+id/webview_input"
+            android:textSize="18sp"
+            android:hint="点击输入网址"
+            android:drawableLeft="@drawable/ic_web_asset_gray_24dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/blank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:background="@drawable/search_shape"
+            tools:ignore="HardcodedText" />
+        <Button
+            android:id="@+id/webview_search"
+            android:drawableLeft="@drawable/ic_search_black_24dp"
+            android:textSize="18sp"
+            android:background="@drawable/search_shape"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layerType="hardware"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/webview_title" />
+
+    <FrameLayout
+        android:id="@+id/videoContainer2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blank"></FrameLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dip"
+        android:progressDrawable="@drawable/pg"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints"
+        tools:targetApi="lollipop" />
+
+    <View
+        android:id="@+id/more"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
