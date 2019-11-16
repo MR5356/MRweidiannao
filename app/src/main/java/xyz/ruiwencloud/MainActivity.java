@@ -1,39 +1,41 @@
 package xyz.ruiwencloud;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.preference.PreferenceManager;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import java.util.Map;
 import java.util.Random;
-
-import static xyz.ruiwencloud.R.drawable.ic_chevron_right_gray_24dp;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -47,22 +49,28 @@ public class MainActivity extends AppCompatActivity {
     private Button old_version;
     private Button dev_person;
     private Button clear_cache;
-    private LinearLayout constellation;
+    private Button about_us;
+    //private LinearLayout constellation;
     private LinearLayout nine_pic;
     private LinearLayout time_display;
-    private LinearLayout express;
+    //private LinearLayout express;
     private LinearLayout movie_search;
     private LinearLayout music_search;
     private LinearLayout pic2link;
-    private LinearLayout poetry;
+    //private LinearLayout poetry;
     private LinearLayout html;
-    private LinearLayout dream;
+    //private LinearLayout dream;
     private Handler handler;
     private String[] msm = {null};
     private String msm_typ;
     private String cache_size;
     private LinearLayout cat_money;
+    private final int CODE_CAMERA = 0;
+    private final int CODE_WRITE_EXTERNAL_STORAGE=1;
+    private final int CODE_READ_EXTERNAL_STORAGE=2;
+    private final int CODE_READ_PHONE_STATE=3;
 
+    @SuppressLint("InlinedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,17 +85,18 @@ public class MainActivity extends AppCompatActivity {
         ohmylove = (TextView)findViewById(R.id.ohmylove);
         nine_pic = (LinearLayout)findViewById(R.id.nine_pic);
         time_display = (LinearLayout)findViewById(R.id.time_display);
-        express = (LinearLayout)findViewById(R.id.express);
+        //express = (LinearLayout)findViewById(R.id.express);
         movie_search = (LinearLayout)findViewById(R.id.movie_search);
-        music_search = (LinearLayout)findViewById(R.id.music_search);
+        //music_search = (LinearLayout)findViewById(R.id.music_search);
         pic2link = (LinearLayout)findViewById(R.id.pic2link);
-        poetry = (LinearLayout)findViewById(R.id.poetry);
+        //poetry = (LinearLayout)findViewById(R.id.poetry);
         html = (LinearLayout)findViewById(R.id.html);
-        constellation = (LinearLayout)findViewById(R.id.constellation);
-        dream = (LinearLayout)findViewById(R.id.dream);
+        //constellation = (LinearLayout)findViewById(R.id.constellation);
+        //dream = (LinearLayout)findViewById(R.id.dream);
         dev_person = (Button)findViewById(R.id.dev_person);
         clear_cache = (Button)findViewById(R.id.clear_cache);
         cat_money = (LinearLayout)findViewById(R.id.cat_money);
+        about_us = (Button)findViewById(R.id.about);
         //绑定事件
         SetOnclick();
 
@@ -189,6 +198,11 @@ public class MainActivity extends AppCompatActivity {
 
         //设置页面底部
         Setohmylove();
+
+        //动态申请权限
+        //Request_permission();
+        new Thread(req_permission).start();
+
     }//OnCreate 结束
 
     //定义功能区
@@ -202,7 +216,13 @@ public class MainActivity extends AppCompatActivity {
         nine_pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+                if (hasPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    startActivity(new Intent(MainActivity.this,Nine_picActivity.class));
+                }else {
+                    //没权限，进行权限请求
+                    requestPermission(CODE_WRITE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                }
             }
         });
         time_display.setOnClickListener(new View.OnClickListener() {
@@ -211,49 +231,49 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, TimeActivity.class));
             }
         });
-        express.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
-            }
-        });
+        //express.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+        //    }
+        //});
         movie_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,MovieActivity.class));
             }
         });
-        music_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
-            }
-        });
+        //music_search.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //   public void onClick(View v) {
+        //        Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+        //    }
+        //});
         pic2link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
             }
         });
-        poetry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //startActivity(new Intent(MainActivity.this,WebBrowserActivity.class));
-                Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
-            }
-        });
-        dream.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
-            }
-        });
-        constellation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
-            }
-        });
+        //poetry.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        //startActivity(new Intent(MainActivity.this,WebBrowserActivity.class));
+        //        Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+        //    }
+        //});
+        //dream.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+        //    }
+        //});
+        //constellation.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+        //    }
+        //});
         html.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -280,7 +300,12 @@ public class MainActivity extends AppCompatActivity {
         dev_person.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,Dev_personActivity.class));
+                if (hasPermission(Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_PHONE_STATE)) {
+                    startActivity(new Intent(MainActivity.this,Dev_personActivity.class));
+                }else {
+                    //没权限，进行权限请求
+                    requestPermission(CODE_READ_PHONE_STATE, Manifest.permission.READ_PHONE_STATE);
+                }
             }
         });
         clear_cache.setOnClickListener(new View.OnClickListener() {
@@ -313,16 +338,51 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Toast.makeText(MainActivity.this,html_text_pop.getText(),Toast.LENGTH_SHORT).show();
+                        history_text_pop.clearFocus();
+                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        assert imm != null;
+                        imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
                         Intent intent = new Intent(MainActivity.this,History_moneyActivity.class);
+                        intent.putExtra("color",style_color);
                         intent.putExtra("url","http://ruiwencloud.xyz/app/functions/history_money.php?name="+history_text_pop.getText().toString());
                         startActivity(intent);
                     }
                 });
-                //builder.setNegativeButton("否", null);
+                //builder.setNegativeButton("粘贴", null)
                 builder.show();
             }
         });
+        about_us.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,about_usActivity.class);
+                intent.putExtra("color",style_color);
+                startActivity(intent);
+            }
+        });
     }
+    @SuppressLint("InlinedApi")
+    private void Request_permission(){
+        //if (hasPermission(Manifest.permission.CAMERA, Manifest.permission.CAMERA)) {
+        //    String a = "1";
+        //}else {
+        //    //没权限，进行权限请求
+        //    requestPermission(CODE_CAMERA, Manifest.permission.CAMERA);
+        //}
+        if (hasPermission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            String a = "1";
+        }else {
+            //没权限，进行权限请求
+            requestPermission(CODE_READ_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE);
+        }
+    }
+
+    private Runnable req_permission = new Runnable() {
+        @Override
+        public void run() {
+            Request_permission();
+        }
+    };
 
     //ToolBar 菜单
     @Override
@@ -478,5 +538,55 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         Cache_manger();
+    }
+    public boolean hasPermission(String... permissions) {
+        for (String permission : permissions) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED)
+                return false;
+        }
+        return true;
+    }
+    protected void requestPermission(int code, String... permissions) {
+        ActivityCompat.requestPermissions(this, permissions, code);
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case CODE_CAMERA:
+                //例子：请求相机的回调
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(getApplicationContext(), "权限申请成功", Toast.LENGTH_SHORT).show();
+                }else{
+                    Looper.prepare();
+                    Toast.makeText(getApplicationContext(), "您拒绝授权,会导致部分功能无法正常使用，可以在系统设置中重新开启权限", Toast.LENGTH_SHORT).show();
+                    Looper.loop();
+                }
+                break;
+            case CODE_READ_EXTERNAL_STORAGE:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(getApplicationContext(), "权限申请成功", Toast.LENGTH_SHORT).show();
+                }else{
+                    Looper.prepare();
+                    Toast.makeText(getApplicationContext(), "您拒绝授权,会导致部分功能无法正常使用，可以在系统设置中重新开启权限", Toast.LENGTH_SHORT).show();
+                    Looper.loop(); }
+                break;
+            case CODE_READ_PHONE_STATE:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(getApplicationContext(), "权限申请成功", Toast.LENGTH_SHORT).show();
+                }else{
+                    Looper.prepare();
+                    Toast.makeText(getApplicationContext(), "您拒绝授权,会导致部分功能无法正常使用，可以在系统设置中重新开启权限", Toast.LENGTH_SHORT).show();
+                    Looper.loop(); }
+                break;
+            case CODE_WRITE_EXTERNAL_STORAGE:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(getApplicationContext(), "权限申请成功", Toast.LENGTH_SHORT).show();
+                }else{
+                    Looper.prepare();
+                    Toast.makeText(getApplicationContext(), "您拒绝授权,会导致部分功能无法正常使用，可以在系统设置中重新开启权限", Toast.LENGTH_SHORT).show();
+                    Looper.loop();  }
+                break;
+        }
     }
 }

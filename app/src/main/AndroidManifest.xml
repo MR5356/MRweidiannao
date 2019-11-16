@@ -3,8 +3,10 @@
     package="xyz.ruiwencloud">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".History_moneyActivity"></activity>
+        <activity
+            android:name=".about_usActivity"
+            android:label="@string/title_activity_about_us"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Nine_picActivity" />
+        <activity android:name=".History_moneyActivity" />
         <activity android:name=".Dev_personActivity" />
         <activity
             android:name=".WebBrowserActivity"

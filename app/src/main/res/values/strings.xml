@@ -12,7 +12,7 @@
     <string name="dream">周公解梦</string>
     <string name="dream_info">《周公解梦》是我国古代的文化遗产，为后人借周公姬旦之名而著。书中列举种种梦境，并对梦预测吉凶。书中的周公就是周公旦，孔子梦的“吾不复梦见周公矣”在儒家经常会出现。周公是一个在孔子梦中频频出现的人物，在儒教长期主导文化的中国，周公也就不可避免的直接与梦联系起来。梦，经常被称为“周公之梦”，或“梦见周公”。</string>
     <string name="constellation">星座运势</string>
-    <string name="constellation_info">查询你的星座运势</string>
+    <string name="constellation_info">根据一个人出生日期所属的星座，来论定该星座在每一个流年甚至月份上发生事情的吉凶。其中，好运、顺运为吉，灾运、败运为凶。</string>
     <string name="express">快递查询</string>
     <string name="express_info">查询快递详情</string>
     <string name="html">网页源码查看</string>
@@ -21,8 +21,8 @@
     <string name="movie_search_info">搜索全网最新电影</string>
     <string name="music_search">音乐搜索</string>
     <string name="music_search_info">搜索音乐并下载</string>
-    <string name="pic2link">图片转链接</string>
-    <string name="pic2link_info">将你的图片生成专属链接，便于分享图片与储存图片。</string>
+    <string name="pic2link">文件分享链接</string>
+    <string name="pic2link_info">将你的文件生成专属链接，便于分享与储存图片，视频等各种类型的文件。</string>
     <string name="poetry">藏头诗</string>
     <string name="poetry_info">生成五言/七言藏头诗</string>
     <string name="buttom">这是我的底线</string>
@@ -34,7 +34,7 @@
     <string name="des_play1">播放地址1</string>
     <string name="des_play2">播放地址2(手动选择播放器)</string>
     <string name="des_down1">下载地址</string>
-    <string name="old_version">使用老版本</string>
+    <string name="old_version">快应用</string>
     <string name="cat_money">历史价格查看</string>
     <string name="cat_money_info">查看淘宝，京东等平台商品的历史价格</string>
     <string name="dev_person">成为管理员</string>
@@ -43,4 +43,7 @@
     <string name="user_email">电子邮箱</string>
     <string name="singin">提交申请</string>
     <string name="clear_cache">清空缓存</string>
+    <string name="title_activity_about_us">关于我们</string>
+    <string name="large_text">关于我们</string>
+    <string name="action_settings">Settings</string>
 </resources>

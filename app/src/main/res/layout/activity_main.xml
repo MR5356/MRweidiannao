@@ -42,7 +42,7 @@
             android:drawableRight="@drawable/ic_chevron_right_gray_24dp"
             android:paddingRight="10dp"
             android:paddingTop="20dp"
-            android:paddingBottom="15dp"
+            android:paddingBottom="10dp"
             android:drawablePadding="20dp"
             android:paddingLeft="20dp"
             android:background="@drawable/btn_shape"
@@ -63,8 +63,6 @@
                 android:drawableLeft="@drawable/ic_developer_mode_gray_24dp"
                 android:drawableRight="@drawable/ic_chevron_right_gray_24dp"
                 android:paddingRight="10dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="15dp"
                 android:drawablePadding="20dp"
                 android:paddingLeft="20dp"
                 android:background="@drawable/btn_shape"
@@ -104,8 +102,6 @@
                 android:drawableLeft="@drawable/ic_delete_gray_24dp"
                 android:drawableRight="@drawable/ic_chevron_right_gray_24dp"
                 android:paddingRight="10dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="15dp"
                 android:drawablePadding="20dp"
                 android:paddingLeft="20dp"
                 android:background="@drawable/btn_shape"
@@ -143,6 +139,8 @@
                     android:paddingBottom="15dp"
                     android:background="@drawable/btn_shape"
                     android:text="@string/nine_pic"
+                    android:drawableRight="@drawable/ic_star_canuse_24dp"
+                    android:paddingRight="30dp"
                     android:textSize="13sp"
                     android:textColor="@color/blank"
                     android:drawableLeft="@drawable/ic_grid_on_gray_24dp"
@@ -150,7 +148,8 @@
                     android:drawablePadding="20dp"
                     android:drawableStart="@drawable/ic_grid_on_gray_24dp"
                     android:paddingStart="30dp"
-                    tools:ignore="RtlSymmetry" />
+                    tools:ignore="RtlSymmetry"
+                    android:drawableEnd="@drawable/ic_star_canuse_24dp" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -203,7 +202,7 @@
                     tools:ignore="RtlSymmetry"/>
             </LinearLayout>
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:id="@+id/express"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -236,7 +235,7 @@
                     android:drawablePadding="20dp"
                     android:paddingStart="30dp"
                     tools:ignore="RtlSymmetry"/>
-            </LinearLayout>
+            </LinearLayout>-->
 
             <LinearLayout
                 android:id="@+id/cat_money"
@@ -314,7 +313,7 @@
                     tools:ignore="RtlSymmetry"/>
             </LinearLayout>
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:id="@+id/music_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -347,7 +346,7 @@
                     android:drawablePadding="20dp"
                     android:paddingStart="30dp"
                     tools:ignore="RtlSymmetry"/>
-            </LinearLayout>
+            </LinearLayout>-->
 
             <LinearLayout
                 android:id="@+id/pic2link"
@@ -379,12 +378,14 @@
                     android:textSize="10sp"
                     android:textColor="@color/gray"
                     android:paddingLeft="30dp"
+                    android:paddingRight="20dp"
                     android:drawablePadding="20dp"
                     android:paddingStart="30dp"
-                    tools:ignore="RtlSymmetry"/>
+                    tools:ignore="RtlSymmetry"
+                    android:paddingEnd="20dp" />
             </LinearLayout>
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:id="@+id/poetry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -417,9 +418,9 @@
                     android:drawablePadding="20dp"
                     android:paddingStart="30dp"
                     tools:ignore="RtlSymmetry"/>
-            </LinearLayout>
+            </LinearLayout>-->
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:id="@+id/dream"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -449,9 +450,11 @@
                     android:textSize="10sp"
                     android:textColor="@color/gray"
                     android:paddingLeft="30dp"
+                    android:paddingRight="20dp"
                     android:drawablePadding="20dp"
                     android:paddingStart="30dp"
-                    tools:ignore="RtlSymmetry"/>
+                    tools:ignore="RtlSymmetry"
+                    android:paddingEnd="20dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -484,10 +487,12 @@
                     android:textSize="10sp"
                     android:textColor="@color/gray"
                     android:paddingLeft="30dp"
+                    android:paddingRight="20dp"
                     android:drawablePadding="20dp"
                     android:paddingStart="30dp"
-                    tools:ignore="RtlSymmetry"/>
-            </LinearLayout>
+                    tools:ignore="RtlSymmetry"
+                    android:paddingEnd="20dp" />
+            </LinearLayout>-->
 
             <LinearLayout
                 android:id="@+id/html"
