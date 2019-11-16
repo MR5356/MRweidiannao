@@ -3,6 +3,7 @@ package xyz.ruiwencloud;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -47,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
     private Button old_version;
     private Button dev_person;
     private Button clear_cache;
-    private LinearLayout constellation;
+    private Button about_us;
+    //private LinearLayout constellation;
     private LinearLayout nine_pic;
     private LinearLayout time_display;
     //private LinearLayout express;
@@ -56,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout pic2link;
     //private LinearLayout poetry;
     private LinearLayout html;
-    private LinearLayout dream;
+    //private LinearLayout dream;
     private Handler handler;
     private String[] msm = {null};
     private String msm_typ;
@@ -84,15 +87,16 @@ public class MainActivity extends AppCompatActivity {
         time_display = (LinearLayout)findViewById(R.id.time_display);
         //express = (LinearLayout)findViewById(R.id.express);
         movie_search = (LinearLayout)findViewById(R.id.movie_search);
-        music_search = (LinearLayout)findViewById(R.id.music_search);
+        //music_search = (LinearLayout)findViewById(R.id.music_search);
         pic2link = (LinearLayout)findViewById(R.id.pic2link);
         //poetry = (LinearLayout)findViewById(R.id.poetry);
         html = (LinearLayout)findViewById(R.id.html);
-        constellation = (LinearLayout)findViewById(R.id.constellation);
-        dream = (LinearLayout)findViewById(R.id.dream);
+        //constellation = (LinearLayout)findViewById(R.id.constellation);
+        //dream = (LinearLayout)findViewById(R.id.dream);
         dev_person = (Button)findViewById(R.id.dev_person);
         clear_cache = (Button)findViewById(R.id.clear_cache);
         cat_money = (LinearLayout)findViewById(R.id.cat_money);
+        about_us = (Button)findViewById(R.id.about);
         //绑定事件
         SetOnclick();
 
@@ -239,12 +243,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,MovieActivity.class));
             }
         });
-        music_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
-            }
-        });
+        //music_search.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //   public void onClick(View v) {
+        //        Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+        //    }
+        //});
         pic2link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -258,18 +262,18 @@ public class MainActivity extends AppCompatActivity {
         //        Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
         //    }
         //});
-        dream.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
-            }
-        });
-        constellation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
-            }
-        });
+        //dream.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+        //    }
+        //});
+        //constellation.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+        //    }
+        //});
         html.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -334,13 +338,26 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Toast.makeText(MainActivity.this,html_text_pop.getText(),Toast.LENGTH_SHORT).show();
+                        history_text_pop.clearFocus();
+                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        assert imm != null;
+                        imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
                         Intent intent = new Intent(MainActivity.this,History_moneyActivity.class);
+                        intent.putExtra("color",style_color);
                         intent.putExtra("url","http://ruiwencloud.xyz/app/functions/history_money.php?name="+history_text_pop.getText().toString());
                         startActivity(intent);
                     }
                 });
-                //builder.setNegativeButton("否", null);
+                //builder.setNegativeButton("粘贴", null)
                 builder.show();
+            }
+        });
+        about_us.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,about_usActivity.class);
+                intent.putExtra("color",style_color);
+                startActivity(intent);
             }
         });
     }

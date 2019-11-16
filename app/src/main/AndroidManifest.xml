@@ -17,7 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Nine_picActivity"></activity>
+        <activity
+            android:name=".about_usActivity"
+            android:label="@string/title_activity_about_us"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Nine_picActivity" />
         <activity android:name=".History_moneyActivity" />
         <activity android:name=".Dev_personActivity" />
         <activity

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".about_usActivity"
+    tools:showIn="@layout/activity_about_us">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/join_us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_shape"
+            android:text="加入官方QQ群"
+            android:paddingTop="10dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText,RtlSymmetry"
+            android:paddingStart="30dp" />
+
+        <Button
+            android:id="@+id/share_us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_shape"
+            android:text="分享这个app"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText,RtlSymmetry"
+            android:paddingStart="30dp" />
+        <Button
+            android:id="@+id/weixin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_shape"
+            android:text="微信公众平台"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText,RtlSymmetry"
+            android:paddingStart="30dp" />
+        <Button
+            android:id="@+id/jianshu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_shape"
+            android:text="简书"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText,RtlSymmetry"
+            android:paddingStart="30dp" />
+        <Button
+            android:id="@+id/suppos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_shape"
+            android:text="功能建议与bug反馈"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText,RtlSymmetry"
+            android:paddingStart="30dp" />
+        <Button
+            android:id="@+id/shared_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_shape"
+            android:text="程序完全开源，点击查看源码"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText,RtlSymmetry"
+            android:paddingStart="30dp" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
