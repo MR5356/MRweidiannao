@@ -5,10 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
     <LinearLayout
+        android:id="@+id/linear_movie"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
+        android:layout_below="@id/toolbar6"
         android:layout_height="wrap_content">
 
         <SearchView
@@ -25,8 +35,9 @@
     </LinearLayout>
     <GridView
         android:id="@+id/grid_movie"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="5dp"
+        android:layout_below="@id/linear_movie"
         android:layout_marginRight="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

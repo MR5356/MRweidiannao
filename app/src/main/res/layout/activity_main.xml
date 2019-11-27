@@ -362,13 +362,16 @@
                     android:background="@drawable/btn_shape"
                     android:text="@string/pic2link"
                     android:textSize="13sp"
+                    android:drawableRight="@drawable/ic_star_canuse_24dp"
                     android:textColor="@color/blank"
+                    android:paddingRight="30dp"
                     android:drawableLeft="@drawable/ic_link_gray_24dp"
                     android:paddingLeft="30dp"
                     android:drawablePadding="20dp"
                     android:drawableStart="@drawable/ic_link_gray_24dp"
                     android:paddingStart="30dp"
-                    tools:ignore="RtlSymmetry" />
+                    tools:ignore="RtlSymmetry"
+                    android:drawableEnd="@drawable/ic_star_canuse_24dp" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

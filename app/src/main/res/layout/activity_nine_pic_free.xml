@@ -7,7 +7,7 @@
     tools:context=".Nine_picActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar4"
+        android:id="@+id/toolbar5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -16,12 +16,59 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:id="@+id/image"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_centerVertical="true"
         tools:ignore="ContentDescription" />
+    <LinearLayout
+        android:id="@+id/crop_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/image"
+        android:orientation="horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="20dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            android:text="横向数量: "
+            tools:ignore="HardcodedText" />
+        <EditText
+            android:id="@+id/xcut_pic"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:background="@drawable/search_shape"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            android:hint="3"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            tools:ignore="HardcodedText" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:textSize="15sp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="纵向数量: "
+            tools:ignore="HardcodedText" />
+        <EditText
+            android:id="@+id/ycut_pic"
+            android:layout_width="0dp"
+            android:inputType="number"
+            android:layout_height="25dp"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            android:background="@drawable/search_shape"
+            android:paddingLeft="10dp"
+            android:hint="3"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,7 +91,7 @@
             android:layout_marginRight="80dp"
             android:layout_height="25dp"
             android:textSize="15sp"
-            android:text="制作九宫图"
+            android:text="切图"
             android:background="@drawable/search_shape"
             tools:ignore="HardcodedText"
             android:layout_alignParentEnd="true"

@@ -1,16 +1,16 @@
 package xyz.ruiwencloud;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,7 +19,12 @@ import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.bumptech.glide.Glide;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,13 +39,21 @@ public class MovieActivity extends AppCompatActivity {
     public String movie_name1 = null;
     private Handler handler;
     private MovieAdapter adapter = null;
+    private Toolbar toolbar;
+    private Integer style_color;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movie);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         handler=new Handler();
+        toolbar = (Toolbar) findViewById(R.id.toolbar6);
+        toolbar.setTitle("视频搜索");
+        setSupportActionBar(toolbar);
+        Intent intent = getIntent();
+        style_color = intent.getIntExtra("color",0);
+        Change_color(style_color);
 
         Movielist.clear();
         des1.clear();
@@ -171,6 +184,33 @@ public class MovieActivity extends AppCompatActivity {
         //Toast.makeText(MovieActivity.this,des.get(position),Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(MovieActivity.this, MoviedesActivity.class);
         intent.putExtra("des",des1.get(position));
+        intent.putExtra("color",style_color);
         startActivity(intent);
+    }
+    private void Change_color(Integer style_color){
+        int color = 0;
+        switch (style_color){
+            case 0:
+                color = R.color.pink;
+                break;
+            case 1:
+                color = R.color.skyblue;
+                break;
+            case 2:
+                color = R.color.gray;
+                break;
+            case 3:
+                color = R.color.green;
+                break;
+        }
+        Set_color(color);
+    }
+    private void Set_color(int color){
+        toolbar.setBackgroundColor(getResources().getColor(color));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(color));
+        }
     }
 }

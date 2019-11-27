@@ -21,8 +21,8 @@
     <string name="movie_search_info">搜索全网最新电影</string>
     <string name="music_search">音乐搜索</string>
     <string name="music_search_info">搜索音乐并下载</string>
-    <string name="pic2link">文件分享链接</string>
-    <string name="pic2link_info">将你的文件生成专属链接，便于分享与储存图片，视频等各种类型的文件。</string>
+    <string name="pic2link">图片切割</string>
+    <string name="pic2link_info">自由选择横向纵向图片切割数量进行切图，PPT图片展示的好帮手</string>
     <string name="poetry">藏头诗</string>
     <string name="poetry_info">生成五言/七言藏头诗</string>
     <string name="buttom">这是我的底线</string>

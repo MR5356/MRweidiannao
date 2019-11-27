@@ -24,6 +24,7 @@
         <activity android:name=".Nine_picActivity" />
         <activity android:name=".History_moneyActivity" />
         <activity android:name=".Dev_personActivity" />
+        <activity android:name=".Nine_pic_freeActivity"/>
         <activity
             android:name=".WebBrowserActivity"
             android:configChanges="orientation|keyboardHidden" />

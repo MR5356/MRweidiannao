@@ -218,7 +218,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
                 if (hasPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    startActivity(new Intent(MainActivity.this,Nine_picActivity.class));
+                    Intent intent = new Intent(MainActivity.this,Nine_picActivity.class);
+                    intent.putExtra("color",style_color);
+                    startActivity(intent);
                 }else {
                     //没权限，进行权限请求
                     requestPermission(CODE_WRITE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -240,7 +242,9 @@ public class MainActivity extends AppCompatActivity {
         movie_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,MovieActivity.class));
+                Intent intent = new Intent(MainActivity.this,MovieActivity.class);
+                intent.putExtra("color",style_color);
+                startActivity(intent);
             }
         });
         //music_search.setOnClickListener(new View.OnClickListener() {
@@ -252,7 +256,15 @@ public class MainActivity extends AppCompatActivity {
         pic2link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this,"功能还在开发中",Toast.LENGTH_SHORT).show();
+                if (hasPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    Intent intent = new Intent(MainActivity.this,Nine_pic_freeActivity.class);
+                    intent.putExtra("color",style_color);
+                    startActivity(intent);
+                }else {
+                    //没权限，进行权限请求
+                    requestPermission(CODE_WRITE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                }
             }
         });
         //poetry.setOnClickListener(new View.OnClickListener() {
